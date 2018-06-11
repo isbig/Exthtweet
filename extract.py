@@ -52,18 +52,24 @@ def get_all_tweets(screen_name):
     outtweets = [[tweet.id_str, tweet.created_at, tweet.full_text] for tweet in alltweets]
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    if not os.path.exists(dir_path+"/result"):
-        os.makedirs(dir_path+"/result")
+    if not os.path.exists(dir_path+"/result/csvfile"):
+        os.makedirs(dir_path+"/result/csvfile")
+    if not os.path.exists(dir_path+"/result/txtfile"):
+        os.makedirs(dir_path+"/result/txtfile")
         
     #write the csv  
-    with open(dir_path+"/result/"+'%s_tweets.csv' % screen_name, 'w', encoding = 'utf-8') as f:
+    with open(dir_path+"/result/csvfile/"+'%s_tweets.csv' % screen_name, 'w', encoding = 'utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(["id","created_at","text"])
         writer.writerows(outtweets)
+
+    with open(dir_path+"/result/txtfile/"+'%s_tweets.txt' % screen_name, 'w', encoding = 'utf-8') as f:
+        for x in outtweets:
+            f.write(x[2])
 
     pass
 
 
 if __name__ == '__main__':
     #pass in the username of the account you want to download
-    get_all_tweets("drballban")
+    get_all_tweets("HellAngelKen1")
