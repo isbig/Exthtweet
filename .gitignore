@@ -106,3 +106,6 @@ venv.bak/
 .DS_Store
 config.py
 /result/
+
+.idea
+example_username_list.py

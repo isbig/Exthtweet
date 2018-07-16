@@ -71,5 +71,9 @@ def get_all_tweets(screen_name):
 
 
 if __name__ == '__main__':
-    #pass in the username of the account you want to download
-    get_all_tweets("HellAngelKen1")
+    # pass in the username of the account you want to download
+    # ลิสต์ของ username
+    m = []
+    for a in m:
+        print(a)
+        get_all_tweets(a)
